@@ -1,0 +1,157 @@
+:root {
+  --blue: #04aadd;
+  --green: #20d420;
+
+  --base-font: 'Heebo', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: var(--base-font);
+  font-weight: 300;
+  color: #1b1b1b;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+a {
+  color: var(--blue);
+}
+
+:root {
+  --navbar-height: 80px;
+}
+
+.navbar {
+  height: var(--navbar-height);
+  background-color: white;
+  position: relative;
+}
+
+.navbar-logo {
+  font-size: 48px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 100;
+  white-space: nowrap;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-logo {font-size: 38px;}
+}
+
+.sm-view {display: none;}
+
+@media screen and (max-width: 600px) {
+  .sm-view {display: inline-block}
+  .lg-view {display: none}
+}
+
+
+
+.container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navbar-nav {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  font-size: 20px;
+}
+
+hr {
+  background-color: lightgrey;
+  border: none;
+  height: .5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 2.5px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 0 0 2.5px grey;
+  width: 100%;
+  font-size: 18px;
+  font-family: var(--base-font);
+  outline: none;
+  transition: box-shadow .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input:hover,
+input:focus,
+input:focus-visible {
+  box-shadow: inset 0 0 2.5px var(--blue);
+}
+
+.calculator {
+  background-color: white;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2.5px 10px darkgrey;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.calculator-body {
+  padding: 15px 15px 0 15px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.calculator-footer {
+  padding: 15px;
+  font-size: 36px;
+}
+
+.text-green {color: var(--green)}
+.text-blue {color: var(--blue)}
+
+footer {
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 40px;
+  font-size: 20px;
+}
