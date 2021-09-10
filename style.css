@@ -160,7 +160,11 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-  .navbar-logo {font-size: 38px;}
+  .navbar-logo {
+    font-size: 38px;
+    transform: translateX(0);
+    left: 25px;
+  }
   :root {--navbar-height: 60px}
   input {padding: 8px}
   .calculator-footer {font-size: 34px;}
@@ -194,6 +198,7 @@ footer {
   color: skyblue;
   font-size: 28px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .theme-dark .theme-icon {
