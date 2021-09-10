@@ -199,6 +199,7 @@ footer {
   font-size: 28px;
   cursor: pointer;
   margin-right: 10px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .theme-dark .theme-icon {
