@@ -5,11 +5,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Vue CDN -->
         <script src="https://unpkg.com/vue@next"></script>
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        
+        <!-- Custom Styles-->
         <link rel="stylesheet" href="style.css">
+
         <title>Dollar Per Hour Calculator</title>
     </head>
 
@@ -18,7 +28,8 @@
             <header>
                 <nav class="navbar">
                     <div class="navbar-nav container">
-                        <div class="navbar-logo"><span class="text-blue"><span class="lg-view">DollarPerHour</span><span class="sm-view">$PerHour</span></span> Calculator</div>
+                        <div class="navbar-logo"><span class="text-primary"><span class="lg-view">DollarPerHour</span><span class="sm-view">$PerHour</span></span> Calculator</div>
+                        <i class="theme-icon" :class="iconTheme" @click="darkTheme = !darkTheme"></i>
                         <!-- <div class="navbar-menu">
                             <span>Built by Zack Plauché</span>
                             <a target="_blank" href="">Donate ❤</a>
@@ -71,6 +82,7 @@
                         minutes: 0,
                         seconds: 0,
                         hourlyRate: 0.00,
+                        darkTheme: false,
                     }
                 },
                 computed: {
@@ -79,7 +91,27 @@
                         let dollarsPerSecond = this.hourlyRate / 3600
                         return (totalTimeInSeconds * dollarsPerSecond).toFixed(2)
                     },
-                }
+                    iconTheme() {
+                        return {
+                            'fas fa-sun': this.darkTheme,
+                            'fas fa-moon': !this.darkTheme,
+                        }
+                    }
+                },
+                mounted() {
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        this.darkTheme = true
+                    }
+                },
+                watch: {
+                    darkTheme(status) {
+                        if (status == true) {
+                            document.body.classList.add('theme-dark')
+                        } else {
+                            document.body.classList.remove('theme-dark')
+                        }
+                    }
+                },
             })
 
             app.mount('#app')
