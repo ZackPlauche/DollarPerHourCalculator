@@ -165,9 +165,7 @@ footer {
 
 @media screen and (max-width: 600px) {
   .navbar-logo {
-    font-size: 38px;
-    transform: translateX(0);
-    left: 25px;
+    font-size: 36px;
   }
   :root {--navbar-height: 60px}
   input {padding: 8px}
@@ -200,9 +198,8 @@ footer {
 
 .theme-icon {
   color: skyblue;
-  font-size: 28px;
+  font-size: 22px;
   cursor: pointer;
-  margin-right: 10px;
   -webkit-tap-highlight-color: transparent;
 }
 
