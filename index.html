@@ -37,7 +37,7 @@
                     <div class="navbar-nav container">
                         <div class="navbar-logo"><span class="text-primary">
                             <span class="lg-view">DollarPerHour</span>
-                            <span class="sm-view">$DPH</span></span>
+                            <span class="sm-view">DPH</span></span>
                             Calculator</div>
                         <i class="theme-icon" :class="iconTheme" @click="darkTheme = !darkTheme"></i>
                         <!-- <div class="navbar-menu">
@@ -51,31 +51,7 @@
             </header>
             <main>
                 <div class="container">
-
-                    <form class="calculator">
-                        <div class="calculator-body">
-                            <div class="field">
-                                <label for="hours">Hours</label>
-                                <input type="number" v-model="hours" min="0">
-                            </div>
-                            <div class="field">
-                                <label for="hours">Minutes</label>
-                                <input type="number" v-model="minutes" min="0">
-                            </div>
-                            <div class="field">
-                                <label for="hours">Seconds</label>
-                                <input type="number" v-model="seconds" min="0">
-                            </div>
-                            <hr>
-                            <div class="field">
-                                <label>Hourly Rate</label>
-                                <input type="number" step="0.01" v-model="hourlyRate" min="0.00">
-                            </div>
-                        </div>
-                        <div class="calculator-footer">
-                            <div>Result: <span :class="{ 'text-green': result > 0 }">${{ result }}</span></div>
-                        </div>
-                    </form>
+                    <calculator />
                 </div>
             </main>
             <footer>
@@ -88,19 +64,10 @@
             const app = Vue.createApp({
                 data() {
                     return {
-                        hours: 0,
-                        minutes: 0,
-                        seconds: 0,
-                        hourlyRate: 0.00,
                         darkTheme: false,
                     }
                 },
                 computed: {
-                    result() {
-                        let totalTimeInSeconds = (this.hours * 3600) + (this.minutes * 60) + this.seconds
-                        let dollarsPerSecond = this.hourlyRate / 3600
-                        return (totalTimeInSeconds * dollarsPerSecond).toFixed(2)
-                    },
                     iconTheme() {
                         return {
                             'fas fa-sun': this.darkTheme,
@@ -122,6 +89,49 @@
                         }
                     }
                 },
+            })
+            
+            app.component('Calculator', {
+                template: /*html*/
+                    `<form class="calculator">
+                        <div class="calculator-body">
+                            <div class="field">
+                                <label for="hours">Hours</label>
+                                <input type="number" v-model="hours" min="0">
+                            </div>
+                            <div class="field">
+                                <label for="hours">Minutes</label>
+                                <input type="number" v-model="minutes" min="0">
+                            </div>
+                            <div class="field">
+                                <label for="hours">Seconds</label>
+                                <input type="number" v-model="seconds" min="0">
+                            </div>
+                            <hr>
+                            <div class="field">
+                                <label>Hourly Rate</label>
+                                <input type="number" step="0.01" v-model="hourlyRate" min="0.00">
+                            </div>
+                        </div>
+                        <div class="calculator-footer">
+                            <div>Result: <span :class="{ 'text-green': result > 0 }">\${{ result }}</span></div>
+                        </div>
+                    </form>`,
+                    data() {
+                        return {
+                            hours: 0,
+                            minutes: 0,
+                            seconds: 0,
+                            hourlyRate: 0.00,
+                        }
+                    },
+                    computed: {
+                        result() {
+                            let totalTimeInSeconds = (this.hours * 3600) + (this.minutes * 60) + this.seconds
+                            let dollarsPerSecond = this.hourlyRate / 3600
+                            return (totalTimeInSeconds * dollarsPerSecond).toFixed(2)
+                        },
+                    }
             })
 
             app.mount('#app')
