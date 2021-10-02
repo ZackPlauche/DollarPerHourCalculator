@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="A calculator that takes in inputs of how much time was worked and an hourly rate then returns how much money was earned.">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
@@ -59,7 +60,7 @@
                 </div>
             </main>
             <footer>
-                <div>Built by <a target="_blank" href="https://www.zackplauche.com">Zack Plauche</a></div>
+                <div>Built by <a rel="noopener" target="_blank" href="https://www.zackplauche.com">Zack Plauche</a></div>
             </footer>
         </div>
         <script>
@@ -101,20 +102,20 @@
                         <div class="calculator-body">
                             <div class="field">
                                 <label for="hours">Hours</label>
-                                <input type="number" name="hours" v-model="hours" min="0">
+                                <input type="number" name="hours" id="hours" v-model="hours" min="0">
                             </div>
                             <div class="field">
                                 <label for="minutes">Minutes</label>
-                                <input type="number" name="minutes" v-model="minutes" min="0">
+                                <input type="number" name="minutes" id="minutes" v-model="minutes" min="0">
                             </div>
                             <div class="field">
                                 <label for="seconds">Seconds</label>
-                                <input type="number" name="seconds" v-model="seconds" min="0">
+                                <input type="number" name="seconds" id="seconds" v-model="seconds" min="0">
                             </div>
                             <hr>
                             <div class="field">
                                 <label for="hourly_rate">Hourly Rate</label>
-                                <input type="number" name="hourly_rate" step="0.01" v-model="hourlyRate" min="0.00">
+                                <input type="number" name="hourly_rate" id="hourly_rate" step="0.01" v-model="hourlyRate" min="0.00">
                             </div>
                         </div>
                         <div class="calculator-footer">
