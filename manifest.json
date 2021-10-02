@@ -1,9 +1,22 @@
 {
-    "name": "Fireship",
+    "manifest_version": 3,
+    "name": "DollarPerHour Calculator",
+    "short_name": "DPH Calc",
     "start_url": "./index.html",
-    "icons": [],
+    "icons": [
+        {
+            "src": "/img/dph-logo-dark-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/img/dph-logo-dark-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
     "theme_color": "#000000",
     "background_color": "#FFFFFF",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "portrait"
 }
